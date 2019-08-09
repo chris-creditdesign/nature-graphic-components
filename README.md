@@ -9,3 +9,7 @@ To run eslint on javascript components
 To run jest snapshot tests of all components 
 
 	npm run test
+
+TODO:
+- Story for figure
+- Figure caption as a component
