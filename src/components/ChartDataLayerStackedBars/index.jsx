@@ -2,6 +2,16 @@ import React from "react"
 import PropTypes from "prop-types"
 import ChartStackedBars from "../ChartStackedBars/index"
 
+/**
+ * ## ChartDataLayerStackedBars
+ *
+ * Returns an SVG group containing an array of `ChartStackedBars` components.
+ * Each group of bars is passed an index so that the bars can be positioned
+ * and coloured within their stack.
+ *
+ * The group is positioned by innerLeft and innerTop all other props
+ * are passed to the the `ChartStackedBars` components.
+ */
 const ChartDataLayerStackedBars = ({
 	chartInnerWidth,
 	handleMouseEnterDataElem,
@@ -46,7 +56,9 @@ ChartDataLayerStackedBars.propTypes = {
 	chartInnerWidth: PropTypes.number.isRequired,
 	handleMouseEnterDataElem: PropTypes.func.isRequired,
 	handleMouseLeaveDataElem: PropTypes.func.isRequired,
+	/** Used to position the group. */
 	innerLeft: PropTypes.number.isRequired,
+	/** Used to position the group. */
 	innerTop: PropTypes.number.isRequired,
 	stacked: PropTypes.arrayOf(
 		PropTypes.arrayOf(PropTypes.array.isRequired)

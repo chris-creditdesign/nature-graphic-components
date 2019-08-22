@@ -2,6 +2,16 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import theme from "../../utils/theme"
 
+/**
+ * ## ChartStackedBars
+ *
+ * Similar to `ChartBars` component, except data is passed
+ * through a `d3.stack` function so that the bars can be stacked vertically.
+ *
+ * TODO: The `rect` bar element should be a separate component.
+ *
+ * TODO: Rename to `ChartBarsStacked`.
+ */
 const ChartStackedBars = ({
 	chartInnerWidth,
 	handleMouseEnterDataElem,
@@ -80,17 +90,32 @@ const ChartStackedBars = ({
 export default ChartStackedBars
 
 ChartStackedBars.propTypes = {
+	/** Width of chart area - used to position tooltip */
 	chartInnerWidth: PropTypes.number.isRequired,
+	/** Function to be called when the cursor enters a bar.
+	 * Returns an object of {x, y, value, alignment }
+	 * used to position the tooltip.
+	 */
 	handleMouseEnterDataElem: PropTypes.func.isRequired,
+	/** Function to be called when the cursor leaves a bar */
 	handleMouseLeaveDataElem: PropTypes.func.isRequired,
 	/** Used to select data range and apply a stroke color */
 	index: PropTypes.number.isRequired,
+	/** Used to correctly position the tooltip */
 	innerLeft: PropTypes.number.isRequired,
+	/** Used to correctly position the tooltip */
 	innerTop: PropTypes.number.isRequired,
+	/** A d3 'stack' of the given array of data, containing an
+	 * array representing each series in the data */
 	stacked: PropTypes.arrayOf(
 		PropTypes.arrayOf(PropTypes.array.isRequired)
 	).isRequired,
+	/** d3.scaleBand used to position the bars horizontally */
 	xScale: PropTypes.func.isRequired,
+	/** Used to format the 'value' that is returned to handleMouseEnterDataElem
+	 * to be displayed in the tooltip.
+	 */
 	yAxisFormat: PropTypes.func.isRequired,
+	/** d3.scaleLinear used to determine the height of the bars */
 	yScale: PropTypes.func.isRequired,
 }

@@ -16,6 +16,17 @@ const getAverageTextNodeWidth = (elem, settings = { padding: 20 }) => {
 	return parseInt(averageTextNodeWidth, 10) + settings.padding
 }
 
+/**
+ * ## ChartXAxisLinear
+ *
+ * Returns an SVG group containing an array of text elements
+ * and an array of line elements.
+ *
+ * The number of text elements to display is screen is calculated
+ * based on the average text node width and how many times this width
+ * will fit into the the chart width. This value is then used as the
+ * `tickCount` arguement for the x-axis function.
+ */
 const ChartXAxisLinear = ({
 	chartInnerHeight,
 	chartInnerWidth,
@@ -91,11 +102,18 @@ const ChartXAxisLinear = ({
 export default ChartXAxisLinear
 
 ChartXAxisLinear.propTypes = {
+	/** Height of the chart inner area */
 	chartInnerHeight: PropTypes.number.isRequired,
+	/** Width of the chart inner area */
 	chartInnerWidth: PropTypes.number.isRequired,
+	/** Used to translate group horizontally into position */
 	innerLeft: PropTypes.number.isRequired,
+	/** Used to translate group vertically into position */
 	innerTop: PropTypes.number.isRequired,
+	/** Used to apply formating to the axis labels */
 	xAxisFormat: PropTypes.func.isRequired,
+	/** Ideal number of ticks in the x-axis. */
 	xAxisTickCount: PropTypes.number.isRequired,
+	/** d3 scale - used to determine the position of the lines / labels */
 	xScale: PropTypes.func.isRequired,
 }

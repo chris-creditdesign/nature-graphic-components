@@ -20,7 +20,15 @@ export const sliderProps = {
 	onChange: value => sliderStore.set({ value }),
 }
 
-storiesOf("Presentational|Form/Components/Slider", module)
+const { description } = FormSlider.__docgenInfo
+
+storiesOf("Presentational|Form/Components/FormSlider", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider],
+		},
+	})
 	.addDecorator(StateDecorator(sliderStore))
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>

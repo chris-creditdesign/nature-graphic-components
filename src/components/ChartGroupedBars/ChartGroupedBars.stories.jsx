@@ -91,14 +91,22 @@ const barProps = {
 	yScale,
 }
 
-storiesOf("Presentational|Chart/Components/Bars", module)
+const { description } = ChartGroupedBars.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartGroupedBars", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
-	.add("grouped", () => (
+	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>
 			<ChartGroupedBars {...barProps} />
 		</ChartSVG>
 	))
-	.add("grouped - alt data", () => (
+	.add("alt data", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>
 			<ChartGroupedBars
 				{...barProps}

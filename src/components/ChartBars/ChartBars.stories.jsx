@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-underscore-dangle */
 import React from "react"
 import { storiesOf } from "@storybook/react"
 import { scaleLinear, scaleBand } from "d3-scale"
@@ -47,7 +47,15 @@ const barProps = {
 	yScale,
 }
 
-storiesOf("Presentational|Chart/Components/Bars", module)
+const { description } = ChartBars.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartBars", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>

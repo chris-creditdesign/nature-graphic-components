@@ -3,7 +3,14 @@ import { storiesOf } from "@storybook/react"
 
 import ChartSVG from "./index"
 
-storiesOf("Presentational|Chart/Components/SVG", module)
+const { description } = ChartSVG.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartSVG", module)
+	.addParameters({
+		info: {
+			text: description,
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>

@@ -6,6 +6,18 @@ import KeyColorBox from "../KeyColorBox/index"
 import KeyColorLine from "../KeyColorLine/index"
 import KeyColorDot from "../KeyColorDot/index"
 
+/**
+ * ## Key
+ *
+ * Returns an unordered list, each list item containing a
+ * symbol and text label, to be used as graphical key.
+ *
+ * TODO: Convert from columnNames, to insterting data containing
+ * value and fill information. So the key can be used to display any
+ * data - indepent of the theme.
+ *
+ * TODO: Add a gradient key component.
+ */
 const Key = ({ columnNames, type }) => {
 	const listItems = columnNames.map((elem, i) => {
 		let symbol = <KeyColorBox index={i} />
@@ -33,5 +45,6 @@ export default Key
 
 Key.propTypes = {
 	columnNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+	/** The style of key to be displayed */
 	type: PropTypes.oneOf(["box", "line", "dot"]).isRequired,
 }

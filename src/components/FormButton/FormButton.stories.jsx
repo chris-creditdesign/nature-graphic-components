@@ -17,7 +17,15 @@ export const buttonProps = {
 		buttonStore.set({ expanded: !buttonStore.get("expanded") }),
 }
 
-storiesOf("Presentational|Form/Components/Button", module)
+const { description } = FormButton.__docgenInfo
+
+storiesOf("Presentational|Form/Components/FormButton", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider],
+		},
+	})
 	.addDecorator(StateDecorator(buttonStore))
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>

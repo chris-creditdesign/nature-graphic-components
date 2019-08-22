@@ -2,6 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import theme from "../../utils/theme"
 
+/**
+ * ## ChartYAxisBaseline
+ *
+ * Returns as svg `line` element to represent the
+ * horizontal baseline of the graph.
+ */
 const ChartYAxisBaseline = ({
 	chartInnerWidth,
 	innerLeft,
@@ -31,9 +37,15 @@ const ChartYAxisBaseline = ({
 export default ChartYAxisBaseline
 
 ChartYAxisBaseline.propTypes = {
+	/** Width of the chart inner area */
 	chartInnerWidth: PropTypes.number.isRequired,
+	/** Translate group horizontally */
 	innerLeft: PropTypes.number.isRequired,
+	/** Translate group vertically */
 	innerTop: PropTypes.number.isRequired,
+	/** Ideal number of ticks in the y-axis.
+	 * TODO: This might not be necessary here as we only want the first tick. */
 	yAxisTickCount: PropTypes.number.isRequired,
+	/** d3 scale - used to determine the position of the baseline */
 	yScale: PropTypes.func.isRequired,
 }

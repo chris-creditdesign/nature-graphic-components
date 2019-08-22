@@ -8,5 +8,6 @@ module.exports = {
 		"macros",
 		"@babel/plugin-proposal-object-rest-spread",
 		"emotion",
+		"react-docgen",
 	],
 }

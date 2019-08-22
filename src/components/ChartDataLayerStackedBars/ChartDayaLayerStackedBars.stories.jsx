@@ -63,9 +63,17 @@ const barProps = {
 	yScale,
 }
 
-storiesOf("Presentational|Chart/Components/Data layer/Bars", module)
+const { description } = ChartDataLayerStackedBars.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartDataLayerStackedBars", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
-	.add("stacked", () => (
+	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>
 			<ChartDataLayerStackedBars {...barProps} />
 		</ChartSVG>

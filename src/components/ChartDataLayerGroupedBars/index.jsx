@@ -2,9 +2,19 @@ import React from "react"
 import PropTypes from "prop-types"
 import ChartGroupedBars from "../ChartGroupedBars/index"
 
+/**
+ * ## ChartDataLayerGroupedBars
+ *
+ * Returns an SVG group containing an array of `ChartGroupedBars`
+ * components. Each group of bars is passed an index so that the
+ * bars can be positioned and coloured within their group.
+ *
+ * The group is positioned by innerLeft and innerTop all other
+ * props are passed to the the `ChartGroupedBars` components.
+ */
 const ChartDataLayerGroupedBars = ({
-	chartInnerWidth,
 	chartInnerHeight,
+	chartInnerWidth,
 	columnNames,
 	data,
 	handleMouseEnterDataElem,
@@ -49,8 +59,8 @@ const ChartDataLayerGroupedBars = ({
 export default ChartDataLayerGroupedBars
 
 ChartDataLayerGroupedBars.propTypes = {
-	chartInnerWidth: PropTypes.number.isRequired,
 	chartInnerHeight: PropTypes.number.isRequired,
+	chartInnerWidth: PropTypes.number.isRequired,
 	columnNames: PropTypes.arrayOf(
 		PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 	).isRequired,
@@ -62,7 +72,9 @@ ChartDataLayerGroupedBars.propTypes = {
 	).isRequired,
 	handleMouseEnterDataElem: PropTypes.func.isRequired,
 	handleMouseLeaveDataElem: PropTypes.func.isRequired,
+	/** Used to position the group. */
 	innerLeft: PropTypes.number.isRequired,
+	/** Used to position the group. */
 	innerTop: PropTypes.number.isRequired,
 	xScale: PropTypes.func.isRequired,
 	xScaleInternal: PropTypes.func.isRequired,

@@ -3,6 +3,15 @@ import PropTypes from "prop-types"
 import ChartLine from "../ChartLine/index"
 import ChartDots from "../ChartDots/index"
 
+/**
+ * ## ChartDataLayerLine
+ *
+ * Returns an SVG group containing an array of SVG groups
+ * containing a `ChartLine` and a `ChartDots` component.
+ *
+ * The group is positioned by innerLeft and innerTop all
+ * other props are passed to the the `ChartLine` and `ChartDots` components.
+ */
 const ChartDataLayerLine = ({
 	chartInnerWidth,
 	columnNames,
@@ -65,7 +74,9 @@ ChartDataLayerLine.propTypes = {
 	).isRequired,
 	handleMouseEnterDataElem: PropTypes.func.isRequired,
 	handleMouseLeaveDataElem: PropTypes.func.isRequired,
+	/** Used to position the group. */
 	innerLeft: PropTypes.number.isRequired,
+	/** Used to position the group. */
 	innerTop: PropTypes.number.isRequired,
 	xScale: PropTypes.func.isRequired,
 	yAxisFormat: PropTypes.func.isRequired,

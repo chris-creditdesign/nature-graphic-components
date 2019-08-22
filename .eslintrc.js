@@ -15,6 +15,7 @@ module.exports = {
 	],
 	rules: {
 		semi: "off",
+		"no-underscore-dangle": "off",
 		"no-tabs": "off",
 		"no-console": "warn",
 		indent: ["error", "tab"],

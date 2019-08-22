@@ -45,7 +45,15 @@ const dotProps = {
 	yScale,
 }
 
-storiesOf("Presentational|Chart/Components/Dots", module)
+const { description } = ChartDots.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartDots", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>

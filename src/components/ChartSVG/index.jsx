@@ -1,6 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+/**
+ * ## ChartSVG
+ *
+ * Returns an SVG element into which the chart elements
+ * can be rendered.
+ */
 const ChartSVG = ({ children, chartHeight, chartWidth }) => (
 	<svg
 		height={`${chartHeight}px`}
@@ -18,6 +24,9 @@ export default ChartSVG
 ChartSVG.propTypes = {
 	chartHeight: PropTypes.number.isRequired,
 	chartWidth: PropTypes.number.isRequired,
+	/** SVG elements or React components to be rendered
+	 * within the SVG.
+	 */
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.element),
 		PropTypes.element,

@@ -4,9 +4,16 @@ import { ThemeProvider } from "emotion-theming"
 import theme from "../../utils/theme"
 
 import SmallText from "./index"
-// import state from "../../../state"
 
-storiesOf("Presentational|Small text", module)
+const { description } = SmallText.__docgenInfo
+
+storiesOf("Presentational|SmallText", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider],
+		},
+	})
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>
 	))

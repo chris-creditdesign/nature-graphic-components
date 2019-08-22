@@ -1,11 +1,25 @@
+/* eslint-disable jsx-a11y/label-has-for, jsx-a11y/label-has-associated-control */
+// Disabling as labels do have associated controls via id and htmlFor
 import React from "react"
 import PropTypes from "prop-types"
 import StyledToggelButtons from "./styles"
 
-/* eslint-disable
-    jsx-a11y/label-has-for,
-    jsx-a11y/label-has-associated-control */
-// Disabling as labels do have associated controls via id and htmlFor
+/**
+ * ## FormToggleButtons
+ *
+ * Returns a `FormFieldSet` element containing a radio button group
+ * with just two options.
+ *
+ * One option returns a true vaule, the other false.
+ *
+ * TODO: Should return the seleceted value, rather than true or false. That
+ * way more than two options could be offered.
+ *
+ * TODO: Rename id to message.
+ *
+ * TODO: Rename message to legend or legendText
+ *
+ */
 const FormToggleButtons = ({
 	disabled,
 	id,
@@ -66,11 +80,15 @@ const FormToggleButtons = ({
 
 FormToggleButtons.propTypes = {
 	disabled: PropTypes.bool.isRequired,
+	/** The name attribute applied to the radio group */
 	id: PropTypes.string.isRequired,
+	/** Text for the label */
 	message: PropTypes.string.isRequired,
 	onValueChange: PropTypes.func.isRequired,
 	value: PropTypes.bool.isRequired,
+	/** Text for the true input's label */
 	valueFalseMessage: PropTypes.string.isRequired,
+	/** Text for the fales input's message */
 	valueTrueMessage: PropTypes.string.isRequired,
 }
 

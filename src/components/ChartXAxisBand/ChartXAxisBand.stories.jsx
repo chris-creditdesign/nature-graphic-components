@@ -13,7 +13,15 @@ const xScale = scaleBand()
 	.range([0, 560])
 	.paddingInner(0.5)
 
-storiesOf("Presentational|Chart/Components/X-axis/Band", module)
+const { description } = ChartXAxisBand.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartXAxisBand", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>

@@ -6,18 +6,26 @@ import theme from "../../utils/theme"
 
 import Tooltip from "./index"
 import ChartSVG from "../ChartSVG/index"
-import StyledFigure from "../Figure/styles"
+import Figure from "../Figure/index"
 
 const width = 600
 const height = 300
 
+const { description } = Tooltip.__docgenInfo
+
 storiesOf("Presentational|Tooltip", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider, Figure, ChartSVG],
+		},
+	})
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>
 	))
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height / 2}
@@ -29,10 +37,10 @@ storiesOf("Presentational|Tooltip", module)
 			<ChartSVG chartHeight={height} chartWidth={width}>
 				<circle cx={width / 2} cy={height / 2} r={5} />
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
 	))
 	.add("long text", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height * 0.8}
@@ -55,10 +63,10 @@ storiesOf("Presentational|Tooltip", module)
 					r={5}
 				/>
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
 	))
 	.add("multi paragraph", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height / 2}
@@ -71,10 +79,10 @@ storiesOf("Presentational|Tooltip", module)
 			<ChartSVG chartHeight={height} chartWidth={width}>
 				<circle cx={width / 2} cy={height / 2} r={5} />
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
 	))
 	.add("align right-bottom", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height / 2}
@@ -86,10 +94,10 @@ storiesOf("Presentational|Tooltip", module)
 			<ChartSVG chartHeight={height} chartWidth={width}>
 				<circle cx={width / 2} cy={height / 2} r={5} />
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
 	))
 	.add("align right-top", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height / 2}
@@ -101,10 +109,10 @@ storiesOf("Presentational|Tooltip", module)
 			<ChartSVG chartHeight={height} chartWidth={width}>
 				<circle cx={width / 2} cy={height / 2} r={5} />
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
 	))
 	.add("align left-bottom", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height / 2}
@@ -116,10 +124,10 @@ storiesOf("Presentational|Tooltip", module)
 			<ChartSVG chartHeight={height} chartWidth={width}>
 				<circle cx={width / 2} cy={height / 2} r={5} />
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
 	))
 	.add("align left-top", () => (
-		<StyledFigure>
+		<Figure>
 			<Tooltip
 				x={width / 2}
 				y={height / 2}
@@ -131,5 +139,28 @@ storiesOf("Presentational|Tooltip", module)
 			<ChartSVG chartHeight={height} chartWidth={width}>
 				<circle cx={width / 2} cy={height / 2} r={5} />
 			</ChartSVG>
-		</StyledFigure>
+		</Figure>
+	))
+	.add("multiple paragraphs", () => (
+		<Figure>
+			<Tooltip
+				x={width / 2}
+				y={height / 2}
+				alignment="middle-bottom"
+				transition={false}
+			>
+				<p>
+					<strong>Lorem:</strong> 3,000
+				</p>
+				<p>
+					<strong>Ipsum:</strong> 1.0
+				</p>
+				<p>
+					<strong>Dolor:</strong> 50%
+				</p>
+			</Tooltip>
+			<ChartSVG chartHeight={height} chartWidth={width}>
+				<circle cx={width / 2} cy={height / 2} r={5} />
+			</ChartSVG>
+		</Figure>
 	))

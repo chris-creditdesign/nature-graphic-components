@@ -3,6 +3,13 @@ import { storiesOf } from "@storybook/react"
 
 import KeyColorBox from "./index"
 
-storiesOf("Presentational|Key/Components/ColorBox", module)
+const { description } = KeyColorBox.__docgenInfo
+
+storiesOf("Presentational|Key/components/KeyColorBox", module)
+	.addParameters({
+		info: {
+			text: description,
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => <KeyColorBox index={0} />)

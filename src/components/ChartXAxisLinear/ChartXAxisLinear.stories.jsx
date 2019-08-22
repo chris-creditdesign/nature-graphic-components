@@ -11,7 +11,15 @@ const xScale = scaleLinear()
 	.domain([0, 500])
 	.range([0, 560])
 
-storiesOf("Presentational|Chart/Components/X-axis/Linear", module)
+const { description } = ChartXAxisLinear.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartXAxisLinear", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>

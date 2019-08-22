@@ -2,6 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import StyledTable from "./styles"
 
+/**
+ * ## Table
+ *
+ * Returns a static html table representation of the data.
+ */
 const Table = ({ columnNames, data, yAxisFormat, yAxisLegendText }) => {
 	const columnHeaders = columnNames.map(d => (
 		<th key={d} scope="col">
@@ -54,6 +59,8 @@ Table.propTypes = {
 			values: PropTypes.array,
 		})
 	).isRequired,
+	/** To format the text in the table cells */
 	yAxisFormat: PropTypes.func.isRequired,
+	/** Text to be used as the table's caption */
 	yAxisLegendText: PropTypes.string.isRequired,
 }

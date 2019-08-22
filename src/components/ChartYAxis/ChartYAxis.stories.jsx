@@ -12,7 +12,15 @@ const yScale = scaleLinear()
 	.domain([0, 600])
 	.range([260, 0])
 
-storiesOf("Presentational|Chart/Components/Y-axis/Lines and labels", module)
+const { description } = ChartYAxis.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartYAxis", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("default", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>

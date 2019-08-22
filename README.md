@@ -12,4 +12,5 @@ To run jest snapshot tests of all components
 
 TODO:
 - Story for figure
+- Move bars to data layer
 - Figure caption as a component

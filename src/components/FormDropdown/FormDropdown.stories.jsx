@@ -29,7 +29,15 @@ export const dropdownProps = {
 	onChange: e => dropdownStore.set({ value: e.target.value }),
 }
 
-storiesOf("Presentational|Form/Components/Dropdown", module)
+const { description } = FormDropdown.__docgenInfo
+
+storiesOf("Presentational|Form/Components/FormDropdown", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider],
+		},
+	})
 	.addDecorator(StateDecorator(dropdownStore))
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>

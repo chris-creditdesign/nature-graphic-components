@@ -2,6 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import theme from "../../utils/theme"
 
+/**
+ * ## KeyColorDot
+ *
+ * Returns a 15px square SVG containing a `circle` element coloured
+ * according to the index prop.
+ */
 const KeyColorDot = ({ index }) => (
 	<svg width="15" height="15" focusable={false}>
 		<circle
@@ -16,5 +22,6 @@ const KeyColorDot = ({ index }) => (
 export default KeyColorDot
 
 KeyColorDot.propTypes = {
+	/** Index used to select fill colour */
 	index: PropTypes.number.isRequired,
 }

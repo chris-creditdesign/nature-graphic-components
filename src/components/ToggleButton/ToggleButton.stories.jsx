@@ -20,7 +20,15 @@ export const buttonProps = {
 	controls: "nature-graphic-figure",
 }
 
-storiesOf("Presentational|Toggle button", module)
+const { description } = ToggleButton.__docgenInfo
+
+storiesOf("Presentational|ToggleButton", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider],
+		},
+	})
 	.addDecorator(StateDecorator(buttonStore))
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>

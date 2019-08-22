@@ -18,6 +18,18 @@ const getWidthOfTextNodes = (elem, settings = { padding: 20 }) => {
 	return parseInt(textWidthPlusPadding, 10)
 }
 
+/**
+ * ## ChartXAxisBand
+ *
+ * Returns an SVG group containing an array of text elements and an
+ * array of line elements.
+ *
+ * TODO: `textWidthExceedsChartInnerWidth` variable is true if combined width
+ * of the text nodes is greater than the width of the chart. If so, only
+ * the odd text nodes are displayed. This is quite brittle - breaks down if the
+ * chart width is less than half the the total text with, or if there is one or
+ * more really long label. A proper collision detection system is needed.
+ */
 const ChartXAxisBand = ({
 	chartInnerHeight,
 	chartInnerWidth,
@@ -110,10 +122,16 @@ const ChartXAxisBand = ({
 export default ChartXAxisBand
 
 ChartXAxisBand.propTypes = {
+	/** Height of the chart inner area */
 	chartInnerHeight: PropTypes.number.isRequired,
+	/** Width of the chart inner area */
 	chartInnerWidth: PropTypes.number.isRequired,
+	/** Used to translate group horizontally into position */
 	innerLeft: PropTypes.number.isRequired,
+	/** Used to translate group vertically into position */
 	innerTop: PropTypes.number.isRequired,
+	/** Used to apply formating to the axis labels */
 	xAxisFormat: PropTypes.func.isRequired,
+	/** d3 scale - used to determine the position of the lines / labels */
 	xScale: PropTypes.func.isRequired,
 }

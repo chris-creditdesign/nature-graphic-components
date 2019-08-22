@@ -2,6 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import StyledTooltip from "./styles"
 
+/**
+ * ## Tooltip
+ *
+ * Returns as div element to function as a tooltip
+ * that can be absolutely positioned over chart elements.
+ */
 const Tooltip = ({ children, x, y, alignment, transition }) => {
 	return (
 		<StyledTooltip
@@ -24,8 +30,13 @@ Tooltip.defaultProps = {
 
 Tooltip.propTypes = {
 	children: PropTypes.node.isRequired,
+	/** Horizontal position */
 	x: PropTypes.number.isRequired,
+	/** Vertical position */
 	y: PropTypes.number.isRequired,
+	/** CSS classname used to translate positon of
+	 * tooltip.
+	 */
 	alignment: PropTypes.oneOf([
 		"right-bottom",
 		"right-top",
@@ -33,5 +44,6 @@ Tooltip.propTypes = {
 		"left-top",
 		"middle-bottom",
 	]).isRequired,
+	/** If false the opactity transition will not be applied */
 	transition: PropTypes.bool,
 }

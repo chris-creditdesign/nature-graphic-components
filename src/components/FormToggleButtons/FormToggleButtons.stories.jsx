@@ -20,7 +20,15 @@ export const toggelButtonsProps = {
 	onValueChange: value => toggelButtonsStore.set({ value }),
 }
 
-storiesOf("Presentational|Form/Components/Toggle buttons", module)
+const { description } = FormToggleButtons.__docgenInfo
+
+storiesOf("Presentational|Form/Components/FormToggleButtons", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ThemeProvider],
+		},
+	})
 	.addDecorator(StateDecorator(toggelButtonsStore))
 	.addDecorator(story => (
 		<ThemeProvider theme={theme}>{story()}</ThemeProvider>

@@ -32,7 +32,15 @@ const yScale = scaleLinear()
 const handleMouseEnterDataElem = () => console.log("handleMouseEnterDataElem")
 const handleMouseLeaveDataElem = () => console.log("handleMouseLeaveDataElem")
 
-storiesOf("Presentational|Chart/Components/Data layer", module)
+const { description } = ChartDataLayerLine.__docgenInfo
+
+storiesOf("Presentational|Chart/Components/ChartDataLayerLine", module)
+	.addParameters({
+		info: {
+			text: description,
+			propTablesExclude: [ChartSVG],
+		},
+	})
 	.addDecorator(story => <div className="nature-graphic">{story()}</div>)
 	.add("line", () => (
 		<ChartSVG chartHeight={300} chartWidth={600}>
